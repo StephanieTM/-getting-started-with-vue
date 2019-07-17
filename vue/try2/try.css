@@ -1,0 +1,15 @@
+.active {
+    color: green;
+}
+
+.text-danger {
+    color: red;
+}
+
+.colorText {
+    color: #226699;
+}
+
+.bigFont {
+    font-size: 25px;
+}
