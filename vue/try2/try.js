@@ -19,5 +19,6 @@ var app2 = new Vue({
     data: {
         colorClass: 'colorText',
         sizeClass: 'bigFont',
+        backgroundClass: true,
     }
 });

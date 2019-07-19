@@ -1,0 +1,141 @@
+<html lang="zh-CN">
+    <head>
+        <title>Try #3</title>
+        <meta charset="utf-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app-1">
+            <h2>v-if & v-else</h2>
+            <button v-on:click="changeFlag">Click me! ;-P</button>
+            <template v-if="ok">
+                <p>You can see it.</p>
+                <p>This line as well.</p>
+                <p>Also this line.</p>
+            </template>
+            <template v-else>
+                <p>You missed some content.</p>
+                <p>But you met me.</p>
+                <p>hahaha</p>
+            </template>
+        </div>
+        <hr />
+        <div id="app-2">
+            <h2>Reuse elements.</h2>
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address">
+            </template>
+            <button v-on:click="changeType">Switch login type</button>
+        </div>
+        <hr />
+        <div id="app-3">
+            <h2>Avoiding reuse elements with "key" attribute.</h2>
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username" key="username-input">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address" key="email-input">
+            </template>
+            <button v-on:click="changeType">Switch login type</button>
+        </div>
+        <hr />
+        <div id="app-4">
+            <h2>v-for="(item, index) of items"</h2>
+            <ul>
+                <li v-for="(item, index) of items">
+                    {{ parentMessage }} - {{ index }} - {{ item.message }}
+                </li>
+            </ul>
+        </div>
+        <hr />
+        <div id="app-5">
+            <h2>v-for="(value, name) in object"</h2>
+            <div v-for="(value, name, index) in object">
+                {{ index }}. {{ name }} : {{ value }}
+            </div>
+        </div>
+        <hr />
+        <div id="app-6">
+            <h2>filter/sort with v-for</h2>
+            <div>Original Numbers: 
+                <span v-for="n in numbers">
+                    {{ n }}
+                </span>
+            </div>
+            <div>Filtered Even Numbers: 
+                <span v-for="n in evenNumbers">
+                    {{ n }}
+                </span>
+            </div>
+        </div>
+        <hr />
+        <div id="app-7">
+            <h2>Use methods with v-for</h2>
+            <div>Original Numbers: 
+                <span v-for="n in numbers">
+                    {{ n }}
+                </span>
+            </div>
+            <div>Filtered Even Numbers: 
+                <span v-for="n in even(numbers)">
+                    {{ n }}
+                </span>
+            </div>
+        </div>
+        <hr />
+        <div id="app-8">
+            <h2>v-for with a range (v-for="n in 5")</h2>
+            <div>Entire: 
+                    <span v-for="n in numbers">
+                        {{ n }}
+                    </span>
+                </div>
+            <div>Partial(n in 5): 
+                <span v-for="n in 5">
+                    {{ numbers[n] }}
+                </span>
+            </div>
+        </div>
+        <hr />
+        <div id="app-9">
+            <h2>v-for on a &lt;template&gt;</h2>
+            <template v-for="item in items">
+                <li>{{ item.msg }}</li>
+                <li>----------------------------</li>
+            </template>
+        </div>
+        <br />
+        <div id="app-10">
+            <h2>v-for in components</h2>
+            <form v-on:submit.prevent="addNewTodo">
+                <label for="new-todo">Add a todo</label>
+                <input
+                    v-model="newTodoText"
+                    id="new-todo"
+                    placeholder="E.g. Feed the cat."
+                >
+                <button>Add</button>
+            </form>
+            <ul>
+                <li
+                    is="todo-item"
+                    v-for="(todo, index) in todos"
+                    v-bind:key="todo.id"
+                    v-bind:title="todo.title"
+                    v-on:remove="todos.splice(index, 1)"
+                ></li>
+            </ul>
+        </div>
+
+         
+        <link rel="stylesheet" type="text/css" href="try.css">
+        <script src="try.js"></script>
+    </body>
+</html>
