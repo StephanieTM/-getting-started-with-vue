@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>Try #5</title>
+        <meta charset="utf-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>Form Input Bindings</h1>
+        <hr>
+        <div id="app-1">
+            <h2>Text</h2>
+            <input v-model="message" placeholder="edit me">
+            <p>Message is: {{ message }}</p>
+        </div>
+        <hr>
+        <div id="app-2">
+            <h2>Multiline Text</h2>
+            <span>Multiline message is:</span>
+            <p style="white-space: pre-line;">{{message}}</p>
+            <br>
+            <textarea v-model="message" placeholder="add multiple lines"></textarea>
+        </div>
+
+        <script src="try.js"></script>
+        <link rel="stylesheet" type="text/css" href="try.css">
+    </body>
+</html>

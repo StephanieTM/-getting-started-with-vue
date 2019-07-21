@@ -1,12 +1,47 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
     <head>
         <title>Try #4</title>
         <meta charset="utf-8">
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
-        <div >
-
+        <div id="app-1">
+            <h2>Statements in v-on:click</h2>
+            <button v-on:click="counter += 1">Add 1</button>
+            <p>The button above has been clicked {{ counter }} times.</p>
+        </div>
+        <hr>
+        <div id="app-2">
+            <h2>Method names in v-on:click</h2>
+            <button v-on:click="greet">Greet</button>
+        </div>
+        <hr>
+        <div id="app-3">
+            <h2>Inline methods in v-on:click (to pass arguments into the method)</h2>
+            <button v-on:click="say('hi')">Say hi</button>
+            <button v-on:click="say('what')">Say what</button>
+            <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+            <button v-on:click="tellStory(story)">Tell me something</button>
+        </div>
+        <hr>
+        <div id="app-4">
+            <h2>Event modifiers</h2>
+            <div style="display:flex">
+                <div>
+                    <ul>
+                        <li v-for="item of items">{{ item.name }} ---- {{ item.description }}</li>
+                    </ul>
+                </div>
+                <div>
+                    <div><a v-on:click.stop="items[0].func">v-on:click.stop</a></div>
+                    <div><form v-on:submit.prevent="prevent">v-on:submit.prevent</form></div>
+                    <div><a v-on:click.stop.prevent="items[2].func">v-on:click.stop.prevent</a></div>
+                    <div><form v-on:submit.prevent="items[3].func">v-on:submit.prevent</form></div>
+                    <div><div v-on:click.capture="items[4].func">v-on:click.capture</div></div>
+                    <div><div v-on:click.self="items[5].func">v-on:click.self</div></div>
+                </div>
+            </div>
         </div>
 
         <script src="try.js"></script>
