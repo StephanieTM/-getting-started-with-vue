@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>Try #6</title>
+        <meta charset="utf-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app-1">
+            <h2>Reusing Components</h2>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+        <hr>
+        <div id="app-2">
+            <h2>Passing data to child components with Props</h2>
+            <blog-post title="My journey with Vue"></blog-post>
+            <blog-post title="Blogging with Vue"></blog-post>
+            <blog-post title="Why Vue is so fun"></blog-post>
+        </div>
+        <hr>
+        <div id="app-3">
+            <h2>Components with v-for and v-bind</h2>
+            <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
+        </div>
+        <hr>
+        <div id="app-4">
+            <h2>A single root element</h2>
+            <blog-post-4
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+            ></blog-post-4>
+        </div>
+        <hr>
+        <div id="app-5">
+            <h2>Listening to child components events</h2>
+            <div :style="{ fontSize: postFontSize + 'em' }">
+                <blog-post-5
+                    v-for="post in posts"
+                    v-bind:key="post.id"
+                    v-bind:post="post"
+                    v-on:enlarge-text="postFontSize += 0.1"
+                ></blog-post-5>
+            </div>
+        </div>
+        <hr>
+        <div id="app-6">
+            <h2>Emitting a value with an event</h2>
+            <div :style="{ fontSize: postFontSize + 'em' }">
+                <blog-post-6
+                    v-for="post in posts"
+                    v-bind:key="post.id"
+                    v-bind:post="post"
+                    v-on:enlarge-text="onEnlargeText"
+                ></blog-post-6>
+                <!-- v-on:enlarge-text="postFontSize += $event" -->
+            </div>
+        </div>
+        <hr>
+        <div id="app-7">
+            <h2>Using v-model on Components</h2>
+            <custom-input v-model="searchText"></custom-input>
+            <span>searchText: {{ searchText }}</span>
+        </div>
+        <hr>
+        <div id="app-8">
+            <h2>Content Distribution with Slots</h2>
+            <alert-box>Something bad happened</alert-box>
+        </div>
+
+        <script src="try.js"></script>
+        <link rel="stylesheet" type="text/css" href="try.css">
+    </body>
+</html>

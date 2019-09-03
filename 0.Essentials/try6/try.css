@@ -1,0 +1,10 @@
+.demo-alert-box {
+    padding: 10px 20px;
+    background: #ee8888;
+    border: 1px solid #ff4466;
+    color: darkblue;
+}
+
+.demo-alert-box strong {
+    color: red;
+}

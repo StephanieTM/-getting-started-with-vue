@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>Try #7</title>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app-1" class="demo">
+            <h2>Dynamic Components</h2>
+            <button
+                v-for="tab in tabs"
+                v-bind:key="tab"
+                v-bind:class="['tab-button', { active: currentTab === tab }]"
+                v-on:click="currentTab = tab"
+            >{{ tab }}</button>
+
+            <component
+                v-bind:is="currentTabComponent"
+                class="tab"
+            ></component>
+        </div>
+
+        <script src="try.js"></script>
+        <link rel="stylesheet" type="text/css" href="try.css">
+    </body>
+</html>
